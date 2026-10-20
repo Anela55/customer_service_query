@@ -1,0 +1,32 @@
+name: Basic Project Checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check-project:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check required files
+        run: |
+          test -s index.html
+          test -s style.css
+          test -s script.js
+          test -s README.md
+
+      - name: Check HTML asset references
+        run: |
+          grep -q 'href="style.css"' index.html
+          grep -q 'src="script.js"' index.html
+
+      - name: Check required application elements
+        run: |
+          grep -q 'id="customerForm"' index.html
+          grep -q 'id="requestTable"' index.html
+          grep -q 'id="customerCount"' index.html
