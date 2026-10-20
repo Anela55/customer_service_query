@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service Data Query</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Customer Service Data Query</h1>
+        <p>Manage customers, service requests and queues.</p>
+    </header>
+
+    <main>
+        <section class="stats">
+            <div class="card">
+                <h3>Total Customers</h3>
+                <p id="customerCount">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Open Requests</h3>
+                <p id="requestCount">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Resolved Requests</h3>
+                <p id="resolvedCount">0</p>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Add Customer</h2>
+
+            <form id="customerForm">
+                <input type="text" id="customerName"
+                       placeholder="Customer full name" required>
+
+                <input type="email" id="customerEmail"
+                       placeholder="Email address" required>
+
+                <input type="text" id="customerIssue"
+                       placeholder="Service issue" required>
+
+                <select id="priority">
+                    <option value="Normal">Normal Priority</option>
+                    <option value="High">High Priority</option>
+                    <option value="Urgent">Urgent Priority</option>
+                </select>
+
+                <button type="submit">Add Customer Request</button>
+            </form>
+        </section>
+
+        <section class="panel">
+            <h2>Search Customer Requests</h2>
+
+            <input type="search" id="searchInput"
+                   placeholder="Search by name, email or issue">
+
+            <button type="button" id="exportButton">
+                Export Requests to CSV
+            </button>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Customer</th>
+                            <th>Email</th>
+                            <th>Issue</th>
+                            <th>Priority</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="requestTable"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Customer Service Data Query | Student Project</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
